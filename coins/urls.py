@@ -16,20 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as views_login
-from cartao_credito import urls as cartao_credito_urls
-from despesas import urls as despesas_urls
-from receitas import urls as receitas_urls
 from core import urls as core_urls
 
 from .views import sigin, logout_now
 
 urlpatterns = [
-    path('', include(core_urls), name='home'),
+    path('', include(core_urls)),   
     path('login/', views_login.LoginView.as_view(), name='login'),
     path('logout/', logout_now, name='logout'),
     path('sigin/', sigin, name='sigin'),
-    path('cartao-credito/', include(cartao_credito_urls), name='cartao-credito'),
-    path('despesas', include(despesas_urls), name='despesas'),
-    path('receitas', include(receitas_urls), name='receitas'),
     path('admin/', admin.site.urls),
 ]

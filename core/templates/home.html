@@ -4,8 +4,22 @@
 
 {% block main %}
 
-    <p class="lead">
-        Esse aqui é o início
-    </p>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="{% url 'receitas' %}">Receitas</a>
+                    </li>            
+                    <li class="list-group-item">
+                        <a href="{% url 'despesas' %}">Despesas</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{% url 'cartao-credito' %}">Cartão de Crédito</a>
+                    </li>
+                </ul>
+            </div>
+        </div>        
+    </div>
 
 {% endblock %}
