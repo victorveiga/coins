@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="col-4">
+            <h2>Registrar</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <button type="submit" class="btn btn-info">Começar agora</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <img src="{% static 'img/woman-pointing-3188559_1920.jpg' %}" width="100%" alt="caixas">
+        </div>
+    </div>
+
+{% endblock %}
