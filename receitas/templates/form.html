@@ -4,17 +4,13 @@
 
 {% block main %}
 
-    <script>
-        function VoltarAPaginaAnterior(params) {
-            location.href = params
-        }
-    </script>
+    <h3 class="mb-3">Fonte de renda</h3>
 
     <form method="post">
         {% csrf_token %}
         {{ form|bootstrap }}
 
-        <button class="btn btn-danger" type="button" onclick="VoltarAPaginaAnterior('{% url 'receitas' %}')">Voltar</button>
+        <button class="btn btn-danger" type="button" onclick="irPara('{% url 'receitas' %}')">Voltar</button>
         <button class="btn btn-info" type="submit">Salvar</button>
     </form>
 

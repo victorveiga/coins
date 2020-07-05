@@ -18,12 +18,13 @@ from django.urls import path, include
 from django.contrib.auth import views as views_login
 from core import urls as core_urls
 
-from .views import sigin, logout_now
+from .views import sigin, logout_now, update_user
 
 urlpatterns = [
     path('', include(core_urls)),   
     path('login/', views_login.LoginView.as_view(), name='login'),
     path('logout/', logout_now, name='logout'),
     path('sigin/', sigin, name='sigin'),
+    path('update-user/<int:id>', update_user, name='update-user'),
     path('admin/', admin.site.urls),
 ]

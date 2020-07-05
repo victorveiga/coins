@@ -4,8 +4,41 @@
 
 {% block main %}
 
-    <div>
-              
+    <div class="row">
+        <div id="receitas" class="col-md-12">
+            <div id="botoes-up" class="row mt-5">
+                <button type="button" class="btn btn-info" onclick="irPara('{% url 'new' %}')">Adicionar</button>
+            </div>
+            <table class="table table-striped">
+                <caption>Entradas de capital</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Entrada</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Data</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for receita in receitas %}
+                        <tr onclick="irPara('{% url 'update' receita.id %}')">
+                            <th>{{receita.id}}</th>
+                            <td>{{receita.nome}}</td>
+                            <td>{{receita.valor}}</td>
+                            <td>{{receita.data}}</td>
+                            <td>
+                                <i>
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+                                    </svg>
+                                </i>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
 {% endblock %}
